@@ -6,35 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Bowling</title>
 
-</head>
-
-<body>
-    <div id="menu">
-        <h3>bowling scorer</h3>
-
-        <p>lets bowl </p>
-
-
-        <button id="1" type="button">1</button>
-        <button id="2" type="button">2</button>
-        <button id="3" type="button">3</button>
-        <button id="4" type="button">4</button>
-        <button id="5" type="button">5</button>
-        <button id="6" type="button">6</button>
-        <button id="7" type="button">7</button>
-        <button id="8" type="button">8</button>
-        <button id="9" type="button">9</button>
-        <button id="x" type="button">strike</button>
-
-    </div>
-    <canvas id="gameWorld" tabindex="1" width="1000" height="800"
-        style="border: 1px solid black; background: rgb(7, 66, 121)">
-
-    </canvas>
-    <script type="text/javascript" src="./main.js"></script>
-    <script type="text/javascript" src="./gameengine.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -44,7 +16,99 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+    <title>Bowling</title>
+
+</head>
+
+<body>
+    <div id="menu" class="container">
+        <h3>bowling scorer</h3>
+
+        <p>lets bowl </p>
+
+        <button id="start" type="button">Start</button>
+
+        <button id="0" type="button" value="0">0</button>
+        <button id="1" type="button" value="1">1</button>
+        <button id="2" type="button" value="2">2</button>
+        <button id="3" type="button" value="3">3</button>
+        <button id="4" type="button" value="4">4</button>
+        <button id="5" type="button" value="5">5</button>
+        <button id="6" type="button" value="6">6</button>
+        <button id="7" type="button" value="7">7</button>
+        <button id="8" type="button" value="8">8</button>
+        <button id="9" type="button" value="9">9</button>
+        <button id="10" type="button" value="10">strike</button> <br><br>
+
+        <table id="table" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Frame</th>
+                    <th scope="col">1</th>
+                    <th scope="col">2</th>
+                    <th scope="col">3</th>
+                    <th scope="col">4</th>
+                    <th scope="col">5</th>
+                    <th scope="col">6</th>
+                    <th scope="col">7</th>
+                    <th scope="col">8</th>
+                    <th scope="col">9</th>
+                    <th scope="col">10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Result:</th>
+                    <td id="frame0">-</td>
+                    <td id="frame1">-</td>
+                    <td id="frame2">-</td>
+                    <td id="frame3">-</td>
+                    <td id="frame4">-</td>
+                    <td id="frame5">-</td>
+                    <td id="frame6">-</td>
+                    <td id="frame7">-</td>
+                    <td id="frame8">-</td>
+                    <td id="frame9">-</td>
+                </tr>
+                <tr>
+                    <th scope="row">Frame Score:</th>
+                    <td id="frameScore0">-</td>
+                    <td id="frameScore1">-</td>
+                    <td id="frameScore2">-</td>
+                    <td id="frameScore3">-</td>
+                    <td id="frameScore4">-</td>
+                    <td id="frameScore5">-</td>
+                    <td id="frameScore6">-</td>
+                    <td id="frameScore7">-</td>
+                    <td id="frameScore8">-</td>
+                    <td id="frameScore9">-</td>
+                </tr>
+                <tr>
+                    <th scope="row">Running Total: </th>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
 </body>
-</body>
+
+<script type="text/javascript" src="./frame.js"></script>
+<script type="text/javascript" src="./gameengine.js"></script>
+<script type="text/javascript" src="./main.js"></script>
 
 </html>
