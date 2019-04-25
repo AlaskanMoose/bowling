@@ -6,8 +6,13 @@ class GameEngine {
 			frames: [],
 		}
 
-		for (let i = 0; i < 10; i++)
+		for (let i = 0; i < 9; i++)
 			this.gameState.frames[i] = new Frame();
+
+		let frame10 = new Frame();
+		frame10.frameState.rollsLeft = 3;
+		this.gameState.frames.push(frame10);
+
 
 		let me = this;
 		for (let i = 0; i <= 10; i++) {
@@ -21,8 +26,8 @@ class GameEngine {
 		if (this.gameState.frames[this.gameState.currentFrameNumber].frameState.rollsLeft < 1)
 			this.gameState.currentFrameNumber++;
 
-		if (this.gameState.currentFrameNumber > 9)
-			this.initialize();
+		// if (this.gameState.currentFrameNumber > 9)
+		// 	this.initialize();
 
 		let frame = this.gameState.frames[this.gameState.currentFrameNumber];
 
@@ -93,16 +98,40 @@ class GameEngine {
 				if (frame.frameState.isSpare)
 					frame.frameState.score = 10 + firstRollAfter;
 
-				document.getElementById(`frameScore${i}`).innerHTML =
-					`${frame.frameState.score}`;
+
 			}
+			this.gameState.totalScore += frame.frameState.score;
 
 		}
+		let frame9 = this.gameState.frames[8];
+		if (this.gameState.frames[9].isPlayed) {
+			if (frame9.frameState.isStrike)
+				frame9.frameState.score = (10 + this.gameState.frames[9].rollOne +
+					this.gameState.frames[9].rollTwo);
+
+			if (frame9.frameState.isSpare)
+				frame9.frameState.score = 10 + this.gameState.frames[9].rollOne;
+
+			this.gameState.totalScore += frame9.frameState.score;
+		}
+
+
+		let frame10 = this.gameState.frames[9];
+		if (frame10.frameState.isStrike)
+			frame10.frameState.score = (10 + this.gameState.frames[9].rollOne +
+				this.gameState.frames[9].rollTwo +
+				this.gameState.frames[9].rollThree);
+
+		if (frame10.frameState.isSpare)
+			frame10.frameState.score = 10 + this.gameState.frames[9].rollOne;
+
+		console.log(frame10.frameState);
+
+		for (let i = 0; i < 10; i++) {
+			document.getElementById(`frameScore${i}`).innerHTML =
+				`${this.gameState.frames[i].frameState.score}`;
+		}
+
 	}
-
-	initialize() {
-
-	}
-
 
 }
